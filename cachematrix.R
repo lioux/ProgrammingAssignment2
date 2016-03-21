@@ -36,7 +36,7 @@ makeCacheMatrix <- function(x = matrix()) {
 # the computation. Otherwise, it calculates the inverse matrix of the data and sets the value
 # of the inverse matrix in the cache via the setinverse function.
 
-cacheSolve <- function(x) {
+cacheSolve <- function(x, ...) {
 		# get inverse matrix
 		inverse <- x$getinverse()
 
@@ -50,7 +50,7 @@ cacheSolve <- function(x) {
 
 		# otherwise, calculate inverse matrix then cache it
 		data <- x$get()
-		inverse <- solve(data)
+		inverse <- solve(data, ...)
 		x$setinverse(inverse)
 
 		# Return a matrix that is the inverse of 'x'
